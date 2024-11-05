@@ -14,30 +14,30 @@ const poem = require("./data/poem")
 const poets = require("./data/poets")
 
 app.get("/api/poets", (req, res) => {
-    res.json(posts);
+    res.json(poets);
 });
 
-app.get("api/poets/:id", (req,res) => {
-    const poets = poets.find((p) => p.id == req.params.id);
+app.get("/api/poets/:id", (req,res) => {
+    const poets_id = poets.find((p) => p.id == req.params.id);
     if (post) res.json(post);
 });
 
 app.get("/api/genre", (req, res) => {
-    res.json(posts);
+    res.json(genre);
 });
 
-app.get("api/genre/:id", (req,res) => {
-    const poets = poets.find((p) => p.id == req.params.id);
-    if (post) res.json(post);
+app.get("/api/genre/:id", (req,res) => {
+    const genre_id = genre.find((p) => p.id == req.params.id);
+    if (genre) res.json(genre);
 });
 
 app.get("/api/poem", (req, res) => {
-    res.json(posts);
+    res.json(poem);
 });
 
-app.get("api/poem/:id", (req,res) => {
-    const poets = poets.find((p) => p.id == req.params.id);
-    if (post) res.json(post);
+app.get("/api/poem/:id", (req,res) => {
+    const poem_id = poem.find((p) => p.id == req.params.id);
+    if (genre) res.json(genre);
 });
 
 
@@ -46,6 +46,3 @@ app.use((req, res) => {
     res.json({ error: "No results found" });
   });
   
-  app.listen(port, () => {
-    console.log(`Server listening on port: ${port}.`);
-  });
